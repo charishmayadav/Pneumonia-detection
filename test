@@ -18,3 +18,5 @@ FSeries = pd.Series(filepaths, name='filepaths')
 LSeries = pd.Series(labels, name='label')
 
 test = pd.concat([FSeries, LSeries], axis=1)
+
+test
