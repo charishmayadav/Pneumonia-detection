@@ -1,0 +1,21 @@
+valid_data_dir = '/kaggle/input/chest-xray-pneumonia/chest_xray/val'
+filepaths = []
+labels = []
+
+folds = os.listdir(valid_data_dir)
+for fold in folds:
+    foldpath = os.path.join(valid_data_dir, fold)
+    filelist = os.listdir(foldpath)
+
+    for file in filelist:
+        fpath = os.path.join(foldpath, file)
+
+        filepaths.append(fpath)
+        labels.append(fold)
+
+FSeries = pd.Series(filepaths, name='filepaths')
+LSeries = pd.Series(labels, name='label')
+
+valid = pd.concat([FSeries, LSeries], axis=1)
+
+valid
