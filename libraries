@@ -1,3 +1,4 @@
+!pip install tensorflow==2.9.1
 !pip install -q kaggle
 from google.colab import files
 files.upload()
