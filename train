@@ -1,0 +1,18 @@
+train_data_path = '/kaggle/input/chest-xray-pneumonia/chest_xray/train'
+filepaths = []
+labels = []
+
+folds = os.listdir(train_data_path)
+for fold in folds:
+    foldpath = os.path.join(train_data_path, fold)
+    filelist = os.listdir(foldpath)
+
+    for file in filelist:
+        fpath = os.path.join(foldpath, file)
+        filepaths.append(fpath)
+        labels.append(fold)
+
+FSeries = pd.Series(filepaths, name='filepaths')
+LSeries = pd.Series(labels, name='label')
+
+df = pd.concat([FSeries, LSeries], axis=1)
